@@ -838,7 +838,7 @@ class LaravelDebugbar extends DebugBar
 
         // Check if the request wants Json
         $acceptable = $request->getAcceptableContentTypes();
-        return (isset($acceptable[0]) && $acceptable[0] == 'application/json');
+        return (isset($acceptable[0]) && in_array($acceptable[0], ['application/json', 'application/vnd.siren+json', 'application/hal+json', 'application/vnd.api+json', 'application/ld+json']));
     }
 
     /**
